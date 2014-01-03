@@ -1,0 +1,63 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <style >
+        @page {
+            size: landscape;
+            @frame header_frame{
+                -pdf-frame-content: headerContent;
+                left: 5pt;
+                top: 10pt;
+                height: 100pt;
+                }
+
+            @frame content_frame {
+                    left: 40pt; width: 760pt; top: 90pt; height: 460pt;
+            }
+
+            @frame footer {
+                -pdf-frame-content: footerContent;
+                bottom: 1cm;
+                margin-left: 1cm;
+                margin-right: 1cm;
+                height: 0cm;
+                }
+        }
+    </style>
+</head>
+<body>
+
+<div id="headerContent">
+    <center> <h2>MI LOGO</h2></center>
+</div>
+
+<div id="footerContent">
+    Página: <pdf:pagenumber> de <pdf:pagecount>
+</div>
+
+<br>
+<table style="border:1px solid black;border-collapse:collapse;">
+    <tr>
+        <th style="border:1px solid black; padding: 2px;">Nombre</th>
+        <th style="border:1px solid black; padding: 2px;">Fecha Ingreso</th>
+        <th style="border:1px solid black; padding: 2px;">Fecha Vencimiento</th>
+          <th style="border:1px solid black; padding: 2px;">Cargo</th>
+        <th style="border:1px solid black; padding: 2px;">Observaciones</th>
+    </tr>
+
+        {%for empv in rango%}
+        <tr>
+           <td width= 380 style="border:1px solid black; padding: 3px;">{{empv.nivel_estudio }} {{empv.nombre}} {{empv.apellido_paterno}} {{empv.apellido_materno}}</td>
+            <td width=220 style="border:1px solid black; padding: 3px;"><center>{{empv.fecha_ingreso}}</center></td>
+            <td width =220 style="border:1px solid black; padding: 3px;"><center>{{empv.fecha_fin}}</center></td>
+            <td style="border:1px solid black; padding: 3px;"><center>{{empv.cargo}}</center></td>
+            <td style="border:1px solid black; padding: 2px;">{{empv.observaciones}}</td>
+        </tr>
+        {%endfor%}
+
+</table>
+
+</body>
+</html>
+

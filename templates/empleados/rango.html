@@ -1,0 +1,22 @@
+{%extends 'base.html'%}
+
+{%block contenido%}
+
+    <form class="well" action="." method="POST">
+            <h3 style="margin-top: 0px;"> <strong>Buscar por Rango de Fechas</strong></h3>
+            <hr>
+            {%csrf_token%}
+            {%if error%}
+                <h3>{{error}}</h3>
+            {%endif%}
+            <p>Ingrese fecha de inicio: </p>
+            <input type="text" placeholder="Ejemplo: 21/04/2013" name="fecha_i" id='mask_fechai'>
+
+            <p>Ingrese fecha fin: </p>
+            <input type="text" placeholder="Ejemplo: 12/08/2013" name="fecha_f" id="mask_fechaf">
+
+            <center>
+                <button type="submit" class="btn btn-deep-blue">Buscar</button>
+            </center>
+    </form>
+{%endblock contenido%}

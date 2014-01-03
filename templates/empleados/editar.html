@@ -1,0 +1,13 @@
+{%extends 'base.html'%}
+
+
+{%block contenido%}
+<form class="well" action = " " method = "POST">
+    {%csrf_token%}
+    <div class="form-group">
+        {{formempleado.as_p}}
+        <button type="submit" class="btn btn-primary">Actualizar</button>
+    </div>
+
+</form>
+{%endblock contenido%}

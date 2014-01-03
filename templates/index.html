@@ -1,0 +1,40 @@
+{%extends "base.html"%}
+
+{%block activouno%}
+    <li class="active">
+{%endblock activouno%}
+
+{%block contenido%}
+
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th>Nombre</th>
+            <th>Fecha Ingreso</th>
+            <th>Fecha Vencimiento</th>
+            <th>Opciones</th>
+          </tr>
+        </thead>
+        <tbody>
+          {%for empleados in empleados%}
+              {%if empleados.vencido == 1%}
+                <tr class="success">
+              {%else%}
+                <tr class="danger">
+          {%endif%}
+                  <td>{{empleados.nomcompleto}}</td>
+                  <td>{{empleados.fecha_ingreso}}</td>
+                  <td>{{empleados.fecha_fin}}</td>
+                  <td>
+                  <center>
+                      <span class="glyphicon glyphicon-eye-open"></span>
+                      <a href="/empleados/editar/{{empleados.id}}/"><span class="glyphicon glyphicon-pencil"></span></a>
+                      <span class="glyphicon glyphicon-remove"></span>
+                  </center>
+                  </td>
+                </tr>
+          {%endfor%}
+        </tbody>
+      </table>
+
+{%endblock contenido%}

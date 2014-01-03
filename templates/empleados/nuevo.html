@@ -1,0 +1,20 @@
+{%extends 'base.html'%}
+
+{%block activodos%}
+    <li class="active">
+{%endblock activodos%}
+
+{%block contenido%}
+<form class="well" action = " " method = "POST">
+    {%csrf_token%}
+    <div class="form-group">
+        {{formempleado.as_p}}
+        <button type="submit" class="btn btn-primary">Guardar</button>
+    </div>
+
+</form>
+
+
+
+
+{%endblock contenido%}

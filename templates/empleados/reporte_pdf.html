@@ -1,0 +1,24 @@
+{%extends 'base.html'%}
+
+{%block activotres%}
+    <li class="active">
+{%endblock activotres%}
+
+{%block contenido%}
+<form class="well" action="." method="POST">
+            <h3 style="margin-top: 0px;"> <strong>Generar Reporte PDF</strong></h3>
+            <hr>
+            {%csrf_token%}
+            {%if error%}
+                <h3>{{error}}</h3>
+            {%endif%}
+            <p>Ingrese fecha de inicio: </p>
+            {{ rangoform.fecha_i }}<br/><br/>
+
+            <p>Ingrese fecha fin: </p>
+            {{ rangoform.fecha_f }}<br/><br/>
+
+            <button type="submit" class="btn btn-primary"><span class="icon_agenda"></span>Generar Reporte</button>
+
+</form>
+{%endblock contenido%}

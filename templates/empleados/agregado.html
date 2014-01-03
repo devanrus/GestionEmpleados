@@ -1,0 +1,10 @@
+{%extends 'base.html'%}
+
+{%block contenido%}
+            <div class="alert alert-block alert-info">
+                <center><h3 class="alert-info">¡¡¡ Empleado Registrado !!!</h3></center>
+                <h5><p>¿Desea registrar un nuevo empleado?</p></h5>
+                <a href="{% url 'vista_nuevoempleado' %}"><button type="submit"class="btn btn-success">SI</button></a>
+                <a href="{% url 'vista_principal' %}"><button type="submit"class="btn btn-danger">NO</button><a/>
+            </div>
+{%endblock contenido%}

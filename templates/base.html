@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Inicio</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="{{ STATIC_URL}}css/bootstrap.css" rel="stylesheet">
+
+  </head>
+
+  <body>
+    <div class="container">
+
+      <div class="page-header">
+        <h1>Gestión Empleados</h1>
+        <p class="lead">App basica en Django para gestionar contratos de empleados </p>
+      </div>
+      <div class="row">
+        <div class="col-md-12">
+              <ul class="nav nav-tabs nav-justified">
+              {% block activouno %}<li>{% endblock activouno %}<a href="{% url 'vista_principal' %}">Inicio</a></li>
+              {% block activodos %}<li>{% endblock activodos %}<a href="{%url 'vista_nuevoempleado'%}">Nuevo Empleado</a></li>
+              {% block activotres %}<li>{% endblock activotres %}<a href="{% url 'vista_generarpdf' %}">Generar Reporte</a></li>
+              <li><a href="{% url 'vista_logout' %}">Salir</a></li>
+              </ul>
+              {% block contenido %}
+
+              {% endblock contenido %}
+        </div>
+      </div>
+
+    </div> <!-- /container -->
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+  </body>
+</html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<head>
+	<meta charset="utf-8">
+	<title>Ingresar a SIGET</title>
+	<link rel="stylesheet" href="{{STATIC_URL}}css/bootstrap.min.css">
+	<style type="text/css">
+      body {
+        padding-top: 40px;
+        padding-bottom: 40px;
+        background-color: #f5f5f5;
+      }
+
+      .form-signin {
+        max-width: 340px;
+        padding: 19px 29px 29px;
+        margin: 0 auto 20px;
+        background-color: #fff;
+        border: 1px solid #e5e5e5;
+        -webkit-border-radius: 5px;
+           -moz-border-radius: 5px;
+                border-radius: 5px;
+        -webkit-box-shadow: 0 1px 2px rgba(0,0,0,.05);
+           -moz-box-shadow: 0 1px 2px rgba(0,0,0,.05);
+                box-shadow: 0 1px 2px rgba(0,0,0,.05);
+      }
+      .form-signin .form-signin-heading,
+      .form-signin .checkbox {
+        margin-bottom: 10px;
+      }
+      .form-signin input[type="text"],
+      .form-signin input[type="password"] {
+        font-size: 16px;
+        height: auto;
+        width: 280px;
+        margin-bottom: 15px;
+        padding: 7px 9px;
+      }
+	</style>
+
+
+
+</head>
+<body>
+	<div class="container">
+      <form class="form-signin" method="POST" action=".">
+        <h3 class="form-signin-heading">Ingresa tus datos</h3>
+
+        {% csrf_token %}
+        {%if mensaje%}
+          <div class="alert alert-danger"> {{ mensaje }} </div>
+        {%endif%}
+        Usuario: </br>
+        {{ form.username }}
+        Contraseña: </br>
+        {{ form.password }}
+        <center><button class="btn btn-large btn-primary" type="submit">Entrar</button></center>
+      </form>
+    </div>
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://code.jquery.com/jquery.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="{{STATIC_URL}}js/bootstrap.min.js"></script>
+</body>
+</html>
