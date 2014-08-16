@@ -5,16 +5,33 @@
 {%endblock activodos%}
 
 {%block contenido%}
-<form class="well" action = " " method = "POST">
-    {%csrf_token%}
-    <div class="form-group">
-        {{formempleado.as_p}}
-        <button type="submit" class="btn btn-primary">Guardar</button>
-    </div>
+<div class="well">
 
-</form>
+	<form action = " " method = "POST">
+	    {%csrf_token%}
+	    {{formempleado.as_p}}
+	    <button type="submit" class="btn btn-primary">Guardar</button>
+	</form>
 
-
-
-
+</div>
 {%endblock contenido%}
+
+{% block scripts %}
+<script>
+    $(function() {
+        $("#datepicker").datepicker({
+        	dateFormat:"dd/mm/yy",
+            dayNamesMin: [ "Do", "Lu", "Ma", "Mi", "Ju", "Vi", "Sa" ],
+            dayNames: [ "Domingo", "Lunes", "Martes", "Miercoles", "Jueves", "Viernes", "Sabado" ],
+            monthNames: [ "Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre" ]
+        });
+
+        $("#datepicker2").datepicker({
+        	dateFormat:"dd/mm/yy",
+            dayNamesMin: [ "Do", "Lu", "Ma", "Mi", "Ju", "Vi", "Sa" ],
+            dayNames: [ "Domingo", "Lunes", "Martes", "Miercoles", "Jueves", "Viernes", "Sabado" ],
+            monthNames: [ "Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre" ]
+        });
+    });
+</script>	
+{% endblock scripts %}

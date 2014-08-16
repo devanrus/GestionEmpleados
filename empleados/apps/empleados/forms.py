@@ -14,10 +14,10 @@ class NuevoEmpleado (forms.ModelForm):
         self.fields['apellido_paterno'].widget.attrs.update({'class' : 'form-control'})
         self.fields['apellido_materno'].widget.attrs.update({'class' : 'form-control'})
         self.fields['cargo'].widget.attrs.update({'class' : 'form-control'})
-        self.fields['fecha_ingreso'].widget.attrs.update({'class' : 'form-control','id':'mask_fechai','placeholder': 'Ejemplo: 12/06/2013'})
-        self.fields['fecha_fin'].widget.attrs.update({'class' : 'form-control','id':'mask_fechaf','placeholder': 'Ejemplo: 25/02/2014'})
+        self.fields['fecha_ingreso'].widget.attrs.update({'class' : 'form-control','id':'datepicker','placeholder': 'Ejemplo: 12/06/2013'})
+        self.fields['fecha_fin'].widget.attrs.update({'class' : 'form-control','id':'datepicker2','placeholder': 'Ejemplo: 25/02/2014'})
 
-    observaciones = forms.CharField (widget=forms.Textarea(attrs={'rows':4,'class':'input-xlarge'}))
+    observaciones = forms.CharField (widget=forms.Textarea(attrs={'rows':4,'class':'form-control input-xlarge'}))
 
 
 class EditarEmpleado (NuevoEmpleado):
@@ -26,5 +26,5 @@ class EditarEmpleado (NuevoEmpleado):
 
 
 class RangoForm (forms.Form):
-    fecha_i = forms.DateField(widget = forms.TextInput())
-    fecha_f = forms.DateField(widget = forms.TextInput())
+    fecha_i = forms.DateField(widget = forms.TextInput(attrs={'class':'form-control', 'id':'datepicker'}))
+    fecha_f = forms.DateField(widget = forms.TextInput(attrs={'class':'form-control', 'id':'datepicker2'}))

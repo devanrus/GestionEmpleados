@@ -9,8 +9,9 @@
 
     <title>Inicio</title>
 
-    <!-- Bootstrap core CSS -->
+    <!-- CSS -->
     <link href="{{ STATIC_URL}}css/bootstrap.css" rel="stylesheet">
+    <link href="{{STATIC_URL}}css/jquery-ui.css"rel="stylesheet">
 
   </head>
 
@@ -37,9 +38,12 @@
 
     </div> <!-- /container -->
 
+    <script src="{{STATIC_URL}}js/jquery-1.10.2.js"></script>
+    <script src="{{STATIC_URL}}js/jquery-ui.js"></script>
 
-    <!-- Bootstrap core JavaScript
-    ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
+    {%block scripts%}
+
+    {%endblock scripts%}
+
   </body>
 </html>
